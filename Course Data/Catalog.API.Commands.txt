@@ -1,0 +1,25 @@
+//////////////////////// Pulling and start docker mongo container ////////////////////////////////	
+	
+	docker pull mongo : pull docker image into your local computer
+	docker run -d -p 27017:27017 --name shopping-mongo mongo
+	docker logs -f shopping-mongo
+	docker exec -it shopping-mongo /bin/bash : Command to go to inside docker mongo containers bash
+	
+	//////////// interactive terminal of mongo /////////////////
+	////// Bash Commands 
+		
+		root@61cac48bf530:/# ls
+		root@61cac48bf530:/# mongo
+		root@61cac48bf530:/# show dbs
+		root@61cac48bf530:/# use CatalogDb
+		root@61cac48bf530:/# db.createCollection('Products')
+		root@61cac48bf530:/# db.Products.insertMany(
+			[{"Name": "Asus" , "Category":"Computers", "Summary" : "Summary", "Description":"Description", "Price": 54.93}, 
+			{"Name": "HP Laptop" , "Category":"Computers", "Summary" : "Summary", "Description":"Description", "Price": 44.93}])
+		root@61cac48bf530:/# db.Products.find({}).pretty()
+		root@61cac48bf530:/# db.Products.remove({})
+		root@61cac48bf530:/# show databases
+		root@61cac48bf530:/# show collections	
+		root@61cac48bf530:/# db.Products.find({}).pretty()
+		
+	
